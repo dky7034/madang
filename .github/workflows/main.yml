@@ -71,7 +71,7 @@ jobs:
             docker rm myapp || true
             # 새로운 컨테이너를 백그라운드에서 실행, 네트워크 및 DB 환경 변수 설정
             docker run -d -p 8080:8080 --name myapp --network=mynet \
-              -e DB_URL=${{ secrets.DB_URL }} \  # 데이터베이스 URL 설정
-              -e DB_USER=${{ secrets.DB_USER }} \  # 데이터베이스 사용자 설정
-              -e DB_PWD=${{ secrets.DB_PWD }} \  # 데이터베이스 비밀번호 설정
-              ${{ secrets.DOCKER_USER }}/myapp:latest  # Docker 이미지로 컨테이너 실행
+            -e DB_URL=${{ secrets.DB_URL }} \
+            -e DB_USER=${{ secrets.DB_USER }} \
+            -e DB_PWD=${{ secrets.DB_PWD }} \
+            ${{ secrets.DOCKER_USER }}/myapp:latest
