@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class BookController {
@@ -27,6 +28,12 @@ public class BookController {
 
     @GetMapping("/book/list")
     public void list(Model model) {
-        model.addAttribute("list",  bs.findAll());
+        model.addAttribute("list", bs.findAll());
+    }
+
+    @GetMapping("/book/update")
+    @ResponseBody
+    public String update() {
+        return "update";
     }
 }
